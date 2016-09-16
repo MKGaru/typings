@@ -4,6 +4,10 @@ Sugar.js 2.0.1 support (Developing)
 You should wait for the official  
 https://github.com/andrewplummer/Sugar/issues/529
 
+Install
+-------------
+typings install sugar=github:MKGaru/typings/sugar/index.d.ts --global --save  
+
 Progress
 -------------
 

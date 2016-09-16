@@ -3,7 +3,7 @@
 // Definitions by: MKGaru <https://github.com/mkgaru/>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 /*
- sugar-2.0.0.d.ts may be freely distributed under the MIT license.
+ sugar-2.0.1.d.ts may be freely distributed under the MIT license.
  Copyright (c) 2016 MKGaru
  Permission is hereby granted, free of charge, to any person
  obtaining a copy of this software and associated documentation
@@ -24,7 +24,7 @@
  OTHER DEALINGS IN THE SOFTWARE.
  */
 
-declare module "Sugar" {
+export namespace "Sugar" {
 	/* ===================
 	      Sugar
 	 * =================== */
