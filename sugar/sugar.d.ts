@@ -24,7 +24,7 @@
  OTHER DEALINGS IN THE SOFTWARE.
  */
 
-declare module 'Sugar' {
+//declare module 'Sugar' {
 	/* ===================
 	      Sugar
 	 * =================== */
@@ -34,7 +34,7 @@ declare module 'Sugar' {
 	 * in which case options will be forwarded to each extend call.
 	 * For more, see extending.
 	 */
-	function extend();
+	export function extend();
 
 	/**
 	 * Creates a new Sugar namespace.
@@ -43,7 +43,7 @@ declare module 'Sugar' {
 	 * When extended, any defined methods will be mapped to name in the global context.
 	 * @param name
 	 */
-	function createNamespace(name:string):any;
+	export function createNamespace(name:string):any;
 
 	interface SugarGeneric<T>{
 		valueOf():T;
@@ -130,8 +130,8 @@ declare module 'Sugar' {
 		unique(map:ArrayMapper<T>):SugarArray<T>;
 		zip(...arr:T[][]):SugarArray<T[]>;
 	}
-	function Array<T>(array:T[]):SugarArray<T>;
-	namespace Array{
+	export function Array<T>(array:T[]):SugarArray<T>;
+	export namespace Array{
 		/** @see Sugar.extend */
 		function extend();
 		/** Aliases one Sugar method to another.
@@ -250,8 +250,8 @@ declare module 'Sugar' {
 		monthsUntil(d?:Dateable,options?:string|{}):SugarNumber;
 		yearsUntil(d?:Dateable,options?:string|{}):SugarNumber;
 	}
-	function Date(src:Dateable):SugarDate;
-	namespace Date{
+	export function Date(src:Dateable):SugarDate;
+	export namespace Date{
 		/** @see Sugar.extend */
 		function extend();
 		function addLocale(code:string,def:{});
@@ -287,8 +287,8 @@ declare module 'Sugar' {
 		partial(...args:any[]):SugarFunction<T>;
 		throttle(ms=1):SugarFunction<T>;
 	}
-	function Function<T>(f:T):SugarFunction<T>;
-	namespace SugarFunction{
+	export function Function<T>(f:T):SugarFunction<T>;
+	export namespace Function{
 
 	}
 
@@ -410,8 +410,8 @@ declare module 'Sugar' {
 		toNumber():SugarNumber;
 		upto(num:number,step=1,fn?:(el:number,i?:number,r?:any)=>any):SugarArray<number>;
 	}
-	function Number(number:number|string):SugarNumber;
-	namespace Number{
+	export function Number(number:number|string):SugarNumber;
+	export namespace Number{
 		//function isNaN():SugarBoolean; ES6
 		function random(n1?:number,n2?:number):number;
 		function range(start:number,end:number):SugarRange<number>;
@@ -458,8 +458,8 @@ declare module 'Sugar' {
 		least<U>(all=false,map?:ObjectMapper<T,U>):SugarObject<U>|SugarArray<U>|any;
 		map<U>(map:ObjectMapper<T,U>):SugarObject<{[key:string]:U}>;
 	}
-	function Object<T>(obj:T):SugarObject<T>;
-	namespace Object{
+	export function Object<T>(obj:T):SugarObject<T>;
+	export namespace Object{
 		function fromQueryString(str:string,options:{
 			deep?:boolean;
 			auto?:boolean;
@@ -821,8 +821,8 @@ declare module 'Sugar' {
 		/** Converts half-width characters (hankaku) to full-width (zenkaku). mode accepts all, alphabet, numbers, katakana, spaces, punctuation, or any combination of a, n, k, s, or p, respectively. */
 		zenkaku(mode='all'):SugarString;
 	}
-	function String(string:string):SugarString;
-	namespace String{
+	export function String(string:string):SugarString;
+	export namespace String{
 		/** @see Sugar.extend */
 		function extend();
 		/** @see Sugar.Array.alias */
@@ -855,4 +855,4 @@ declare module 'Sugar' {
 		 */
 		function addPlural(singular:string|RegExp,plural=singular):void;
 	}
-}
+//}
