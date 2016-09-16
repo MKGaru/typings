@@ -24,7 +24,7 @@
  OTHER DEALINGS IN THE SOFTWARE.
  */
 
-declare export {
+declare module 'Sugar' {
 	/* ===================
 	      Sugar
 	 * =================== */
