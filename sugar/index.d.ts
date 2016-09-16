@@ -24,7 +24,7 @@
  OTHER DEALINGS IN THE SOFTWARE.
  */
 
-export namespace "Sugar" {
+//declare namespace "Sugar" {
 	/* ===================
 	      Sugar
 	 * =================== */
@@ -855,4 +855,4 @@ export namespace "Sugar" {
 		 */
 		function addPlural(singular:string|RegExp,plural=singular):void;
 	}
-}
+//}
