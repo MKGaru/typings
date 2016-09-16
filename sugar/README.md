@@ -6,7 +6,7 @@ https://github.com/andrewplummer/Sugar/issues/529
 
 Install
 -------------
-typings install sugar=github:MKGaru/typings/sugar/index.d.ts --global --save  
+typings install sugar=github:MKGaru/typings/sugar/index.d.ts --save  
 
 Progress
 -------------
