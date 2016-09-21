@@ -62,19 +62,20 @@
 
 		add(item:T,index?:number):SugarArray<T>;
 		append(item:T,index?:number):SugarArray<T>;
-		at(index:number,loop=false):SugarArray<T>;
+		at(index:number,loop?:boolean):SugarArray<T>;
 		average<U>(map?:(el:T,i:number,arr:T[])=>U):SugarArray<U>;
 		clone():SugarArray<T>;
-		compact(all=false):SugarArray<T>;
+		compact(all?:boolean):SugarArray<T>;
 		count(search:ArrayFilter<T>):SugarNumber;
-		every(search:ArrayFilter<T>,context=this):SugarBoolean;
+		every(search:ArrayFilter<T>,context?:this):SugarBoolean;
 		exclude(search:ArrayFilter<T>):SugarArray<T>;
-		filter(search:ArrayFilter<T>,context=this):SugarArray<T>;
-		find(search:ArrayFilter<T>,context=this):SugarGeneric<T>;
-		findIndex(search:ArrayFilter<T>,context=this):SugarNumber;
+		filter(search:ArrayFilter<T>,context?:this):SugarArray<T>;
+		find(search:ArrayFilter<T>,context?:this):SugarGeneric<T>;
+		findIndex(search:ArrayFilter<T>,context?:this):SugarNumber;
 		first():SugarGeneric<T>;
 		first(num:number):SugarArray<T>;
-		flatten(limit=Infinity):SugarGeneric<T>;
+		flatten(limit?:number):SugarArray<T>;
+		flatten<U>(limit?:number):SugarArray<U>;
 		mapFromIndex(startIndex:number,arg2?:any,arg3?:any):any;
 		forEachFromIndex(startIndex:number,arg2?:any,arg3?:any):any;
 		filterFromIndex(startIndex:number,arg2?:any,arg3?:any):any;
@@ -84,13 +85,13 @@
 		reduceRightFromIndex(startIndex:number,arg2?:any,arg3?:any):any;
 		findFromIndex(startIndex:number,arg2?:any,arg3?:any):any;
 		findIndexFromIndex(startIndex:number,arg2?:any,arg3?:any):any;
-		forEach(fn:((el:T,i?:number,arr?:T[])=>any),context=this):void;
+		forEach(fn:((el:T,i?:number,arr?:T[])=>any),context?:this):void;
 		from(index:number):SugarArray<T>;
-		groupBy(map:(el:T,i?:number,arr?:T[])=>any,fn?:(arr:T[],key?:string,obj?:T)=>any):SugarGeneric<{[key:string]:T[]}>;
+		groupBy<U>(map:ArrayMapper<T,U>,fn?:(arr:T[],key?:string,obj?:T)=>any):SugarGeneric<{[key:string]:T[]}>;
 		inGroups(num:number,padding?:number):SugarArray<T[]>;
-		inGroupsOf(num:number,padding=null):SugarArray<T[]>;
-		includes(search:ArrayFilter<T>,fromIndex=0 ): SugarBoolean;
-		indexOf(serch:ArrayFilter<T>,fromIndex=0): SugarNumber;
+		inGroupsOf(num:number,padding?:any):SugarArray<T[]>;
+		includes(search:ArrayFilter<T>,fromIndex?:number ): SugarBoolean;
+		indexOf(serch:ArrayFilter<T>,fromIndex?:number): SugarNumber;
 		insert(item:T,index?:number):SugarArray<T>;
 		intersect(arr:T[]):SugarArray<T>;
 		isEmpty():SugarBoolean;
@@ -99,35 +100,35 @@
 		last(num:number):SugarArray<T>;
 		lastIndexOf(search:ArrayFilter<T>,fromIndex?:number):SugarNumber;
 		least():SugarGeneric<T>;
-		least<U>(all:boolean,map?:ArrayMapper<T>):SugarArray<U>;
-		map<U>(map:ArrayMapper<T,U>,context=this):SugarArray<U>;
+		least<U>(all:boolean,map?:ArrayMapper<T,U>):SugarArray<U>;
+		map<U>(map:ArrayMapper<T,U>,context?:this):SugarArray<U>;
 		max():SugarGeneric<T>;
-		max(map:ArrayMapper<T>):SugarGeneric<T>;
-		max(all:boolean,map:ArrayMapper<T>):SugarArray<T>;
+		max<U>(map:ArrayMapper<T,U>):SugarGeneric<T>;
+		max<U>(all:boolean,map:ArrayMapper<T,U>):SugarArray<T>;
 		median():SugarGeneric<T>;
 		median<U>(map:ArrayMapper<T,U>):SugarArray<U>;
 		min():SugarGeneric<T>;
-		min(map:ArrayMapper<T>):SugarGeneric<T>;
-		min(all:boolean,map:ArrayMapper<T>):SugarArray<T>;
+		min<U>(map:ArrayMapper<T,U>):SugarGeneric<T>;
+		min<U>(all:boolean,map:ArrayMapper<T,U>):SugarArray<T>;
 		most():SugarNumber;
 		most(all:boolean):SugarArray<T>;
 		most(map:ArrayFilter<T>):SugarGeneric<T>;
 		most(all:boolean,map:ArrayFilter<T>):SugarArray<T>;
-		none(search:ArrayFilter,context=this):SugarBoolean;
+		none(search:ArrayFilter<T>,context?:this):SugarBoolean;
 		reduce<U>(fn:(acc:T,el:T,idx?:number,arr?:T[])=>U,init?:number):SugarGeneric<U>;
 		reduceRight<U>(fn:(acc:T,el:T,idx?:number,arr?:T[])=>U,init?:number):SugarGeneric<U>;
 		remove(search:ArrayFilter<T>):SugarArray<T>;
 		removeAt(start:number,end?:number):SugarArray<T>;
-		sample(remove=false):SugarGeneric<T>;
-		sample(num:number,remove=false):SugarArray<T>;
+		sample(remove?:boolean):SugarGeneric<T>;
+		sample(num:number,remove?:boolean):SugarArray<T>;
 		shuffle():SugarArray<T>;
-		some(search:ArrayFilter,context=this):SugarBoolean;
-		sortBy(map:ArrayMapper<T>,desc=false):SugarArray<T>;
+		some(search:ArrayFilter<T>,context?:this):SugarBoolean;
+		sortBy<U>(map?:ArrayMapper<T,U>,desc?:boolean):SugarArray<T>;
 		subtract(item:SugarArray<T>):SugarArray<T>;
-		sum(map?:ArrayMapper<T>):SugarNumber;
+		sum<U>(map?:ArrayMapper<T,U>):SugarNumber;
 		to(index:number):SugarArray<T>;
-		union(arr:SugarArray<T>):SugarArray<T>;
-		unique(map:ArrayMapper<T>):SugarArray<T>;
+		union(arr?:SugarArray<T>):SugarArray<T>;
+		unique<U>(map?:ArrayMapper<T,U>):SugarArray<T>;
 		zip(...arr:T[][]):SugarArray<T[]>;
 	}
 	export function Array<T>(array:T[]):SugarArray<T>;
@@ -140,8 +141,8 @@
 		 */
 		function alias(toName,fromName);
 		function construct<T>(n:number,fn:(n:number)=>T);
-		function create<T>(obj?:T,clone=false):T[];
-		function from<U,T>(a:any,map?:(el:T,i:number,arr:T[])=>U,context=this):U[];
+		function create<T>(obj?:T,clone?:boolean):T[];
+		function from<U,T>(a:any,map?:(el:T,i:number,arr:T[])=>U,context?:any):U[];
 		//function isArray(obj:any):SugerGenelic<boolean>; // ES5 use Array.isArray
 		function getOption(name:string);
 		function setOption(name:string,value);
@@ -153,15 +154,15 @@
 	type Dateable = Date|string|number;
 	interface SugarDate{
 		valueOf():Date;
-		addMilliseconds(n:number,reset=false):SugarDate;
-		addSeconds(n:number,reset=false):SugarDate;
-		addMinutes(n:number,reset=false):SugarDate;
-		addHours(n:number,reset=false):SugarDate;
-		addDays(n:number,reset=false):SugarDate;
-		addWeeks(n:number,reset=false):SugarDate;
-		addMonths(n:number,reset=false):SugarDate;
-		addYears(n:number,reset=false):SugarDate;
-		advance(set:Dateable|{},reset=false):SugarDate;
+		addMilliseconds(n:number,reset?:boolean):SugarDate;
+		addSeconds(n:number,reset?:boolean):SugarDate;
+		addMinutes(n:number,reset?:boolean):SugarDate;
+		addHours(n:number,reset?:boolean):SugarDate;
+		addDays(n:number,reset?:boolean):SugarDate;
+		addWeeks(n:number,reset?:boolean):SugarDate;
+		addMonths(n:number,reset?:boolean):SugarDate;
+		addYears(n:number,reset?:boolean):SugarDate;
+		advance(set:Dateable|{},reset?:boolean):SugarDate;
 		beginningOfISOWeek():SugarDate;
 		beginningOfDay(locale:string):SugarDate;
 		beginningOfWeek(locale:string):SugarDate;
@@ -181,10 +182,10 @@
 		getUTCOffset(iso?:boolean):SugarString;
 		getUTCWeekday():SugarNumber;
 		getWeekday():SugarNumber;
-		is(f:Dateable,margin=0):SugarBoolean;
-		isAfter(d:Dateable,margin=0):SugarBoolean;
-		isBefore(d:Dateable,margin=0):SugarBoolean;
-		isBetween(d1:Dateable,d2:Dateable,margin=0):SugarBoolean;
+		is(f:Dateable,margin?:number):SugarBoolean;
+		isAfter(d:Dateable,margin?:number):SugarBoolean;
+		isBefore(d:Dateable,margin?:number):SugarBoolean;
+		isBetween(d1:Dateable,d2:Dateable,margin?:number):SugarBoolean;
 		isToday():SugarBoolean;
 		isYesterday():SugarBoolean;
 		isTomorrow():SugarBoolean;
@@ -216,11 +217,11 @@
 		medium(locale?:string):SugarString;
 		relative(locale?:string,fn?:((num:number,unit?:number,ms?:number,loc?:string)=>string)):SugarString;
 		relativeTo(d:Dateable,locale?:string):SugarString;
-		reset(unit='day',localeCode:Dateable):SugarDate;
-		rewind(set:any,reset=false):SugarDate;
-		set(set:any,reset=false):SugarDate;
+		reset(unit?:string,localeCode?:Dateable):SugarDate;
+		rewind(set:any,reset?:boolean):SugarDate;
+		set(set:any,reset?:boolean):SugarDate;
 		setISOWeek(num:number):SugarDate;
-		setUTC(on=false):SugarDate;
+		setUTC(on?:boolean):SugarDate;
 		setWeekday(dow:number):SugarDate;
 		short(locale?:string):SugarDate;
 		toISOString():SugarString;
@@ -277,15 +278,15 @@
 		after(n:number):SugarFunction<T>;
 		bind(context:any,...args:any[]):SugarFunction<T>;
 		cancel():SugarFunction<T>;
-		debounce(ms=1):SugarFunction<T>;
-		delay(ms=1,...args:any[]):SugarFunction<T>;
-		every(ms=1,...args:any[]):SugarFunction<T>;
-		lazy(ms=1,immediate=false,limit=Infinity):SugarFunction<T>;
+		debounce(ms?:number):SugarFunction<T>;
+		delay(ms?:number,...args:any[]):SugarFunction<T>;
+		every(ms?:number,...args:any[]):SugarFunction<T>;
+		lazy(ms?:number,immediate?:boolean,limit?:number):SugarFunction<T>;
 		lock(n?:number):SugarFunction<T>;
-		memoize(hashFn?:any,limit=Infinity):SugarFunction<T>;
+		memoize(hashFn?:any,limit?:number):SugarFunction<T>;
 		once():SugarFunction<T>;
 		partial(...args:any[]):SugarFunction<T>;
-		throttle(ms=1):SugarFunction<T>;
+		throttle(ms?:number):SugarFunction<T>;
 	}
 	export function Function<T>(f:T):SugarFunction<T>;
 	export namespace Function{
@@ -296,12 +297,12 @@
 	      Sugar.Number
 	 * =================== */
 	interface SugarNumber{
-		abbr(precision=0):SugarString;
-		bytes(precision=0,binary=false,units='si'):SugarString;
-		cap(max=Infinity):SugarNumber;
-		ceil(precision=0):SugarNumber;
+		abbr(precision?:number):SugarString;
+		bytes(precision?:number,binary?:boolean,units?:string):SugarString;
+		cap(max?:number):SugarNumber;
+		ceil(precision?:number):SugarNumber;
 		chr():SugarString;
-		clamp(start=Infinity,end=Infinity):SugarNumber;
+		clamp(start?:number,end?:number):SugarNumber;
 		millisecond():SugarNumber;
 		milliseconds():SugarNumber;
 		second():SugarNumber;
@@ -382,16 +383,16 @@
 		monthsFromNow():SugarDate;
 		yearFromNow():SugarDate;
 		yearsFromNow():SugarDate;
-		dawnto(n:number,step=1,fn?:(el:number,i?:number,r?:any)=>any):SugarArray<number>;
+		dawnto(n:number,step?:number,fn?:(el:number,i?:number,r?:any)=>any):SugarArray<number>;
 		duration(locale:string):SugarString;
-		floor(precision=0):SugarNumber;
-		format(place=0):SugarString;
-		hex(pad=1):SugarString;
+		floor(precision?:number):SugarNumber;
+		format(place?:number):SugarString;
+		hex(pad?:number):SugarString;
 		isEven():SugarBoolean;
 		isInteger():SugarBoolean;
 		isMultipleOf(num:number):SugarBoolean;
 		isOdd():SugarBoolean;
-		log(base=Math.E):SugarNumber;
+		log(base?:number):SugarNumber;
 		abs():SugarNumber;
 		sin():SugarNumber;
 		asin():SugarNumber;
@@ -402,13 +403,13 @@
 		sqrt():SugarNumber;
 		exp():SugarNumber;
 		pow():SugarNumber;
-		metric(precision=0,units='nμm|k'):SugarString;
+		metric(precision?:number,units?:string):SugarString;
 		ordinalize():SugarString;
-		pad(place=0,sign=false,base=10):SugarString;
-		round(precision=0):SugarNumber;
+		pad(place?:number,sign?:boolean,base?:number):SugarString;
+		round(precision?:number):SugarNumber;
 		times<U>(fn:(i:number)=>U):SugarArray<U>;
 		toNumber():SugarNumber;
-		upto(num:number,step=1,fn?:(el:number,i?:number,r?:any)=>any):SugarArray<number>;
+		upto(num:number,step?:number,fn?:(el:number,i?:number,r?:any)=>any):SugarArray<number>;
 	}
 	export function Number(number:number|string):SugarNumber;
 	export namespace Number{
@@ -428,7 +429,7 @@
 		add(obj:any,options:any):any;
 		addAll(sources:any[],options:any):any;
 		average<U>(obj:any,map?:(val:any,key?:string,obj?:T)=>U):U;
-		clone(deep=false):T;
+		clone(deep?:boolean):T;
 		count(search:ObjectFilter<T>):SugarNumber;
 		defaults(sources:any[],options?:any):SugarObject<any>;
 		every(search:ObjectFilter<T>):SugarBoolean;
@@ -436,10 +437,10 @@
 		filter(search:ObjectFilter<T>):SugarObject<any>;
 		find(search:ObjectFilter<T>):SugarObject<any>;
 		forEach(fn:(val:any,key?:string,obj?:T)=>any):SugarObject<T>;
-		get(key:string,inherited=false):SugarGeneric<any>;
-		has(key:string,inherited=false):SugarBoolean;
+		get(key:string,inherited?:boolean):SugarGeneric<any>;
+		has(key:string,inherited?:boolean):SugarBoolean;
 		intersect(obj:any):SugarObject<any>;
-		invert(multi=false):SugarObject<any>;
+		invert(multi?:boolean):SugarObject<any>;
 		isArguments(obj:any):SugarBoolean;
 		isEmpty(obj:any):SugarBoolean;
 		isEqual(b:any):SugarBoolean;
@@ -455,7 +456,7 @@
 		isSet():SugarBoolean;
 		isString():SugarBoolean;
 		keys():SugarArray<string>;
-		least<U>(all=false,map?:ObjectMapper<T,U>):SugarObject<U>|SugarArray<U>|any;
+		least<U>(all?:boolean,map?:ObjectMapper<T,U>):SugarObject<U>|SugarArray<U>|any;
 		map<U>(map:ObjectMapper<T,U>):SugarObject<{[key:string]:U}>;
 	}
 	export function Object<T>(obj:T):SugarObject<T>;
@@ -522,16 +523,16 @@
 		 * @param index
 		 * @param loop
 		 */
-		at(index:number,loop=false):SugarString;
+		at(index:number,loop?:boolean):SugarString;
 		/** @see valueOf */
-		at(index:number[],loop=false):SugarArray<string>;
+		at(index:number[],loop?:boolean):SugarArray<string>;
 		/**
 		 * Converts underscores and hyphens to camel case.
 		 * If upper is true, the string will be UpperCamelCase.
 		 * If the inflections module is included, acronyms can also be defined that will be used when camelizing.
 		 * @param upper
 		 */
-		camelize(upper=true):SugarString;
+		camelize(upper?:boolean):SugarString;
 		/**
 		 * Capitalizes the first character of the string.
 		 * If lower is true, the remainder of the string will be downcased.
@@ -539,7 +540,7 @@
 		 * @param lower
 		 * @param all
 		 */
-		capitalize(lower=false,all=false):SugarString;
+		capitalize(lower?:boolean,all?:boolean):SugarString;
 		/**
 		 *Runs fn against each character in the string, and returns an array.
 		 * @param fn
@@ -589,12 +590,12 @@
 		 * Use this when the entire string is meant for use in a query string.
 		 * @param param
 		 */
-		escapeURL(param=false):SugarString;
+		escapeURL(param?:boolean):SugarString;
 		/**
 		 * Returns the first n characters of the string.
 		 * @param n
 		 */
-		first(n=1):SugarString;
+		first(n?:number):SugarString;
 		/**
 		 * Runs callback fn against every character in the string, or every every occurence of search if it is provided.
 		 * Returns an array of matches. search may be either a string or regex, and defaults to every character in the string.
@@ -616,12 +617,12 @@
 		 * Returns a section of the string starting from index.
 		 * @param index
 		 */
-		from(index=0):SugarString;
+		from(index?:number):SugarString;
 		/**
 		 * Converts full-width characters (zenkaku) to half-width (hankaku). mode accepts all, alphabet, numbers, katakana, spaces, punctuation, or any combination of a, n, k, s, p, respectively.
 		 * @param mode
 		 */
-		hankaku(mode='all'):SugarString;
+		hankaku(mode?:string):SugarString;
 		/**
 		 * Returns true if the string contains any characters in that script.
 		 */
@@ -654,7 +655,7 @@
 		 * Converts katakana into hiragana. If all is false, only full-width katakana will be converted.
 		 * @param all
 		 */
-		hiragana(all=true):SugarString;
+		hiragana(all?:boolean):SugarString;
 		/**
 		 * Creates a human readable string.
 		 * Capitalizes the first word and turns underscores into spaces and strips a trailing '_id', if any. Like titleize, this is meant for creating pretty output.
@@ -669,7 +670,7 @@
 		 * @param search
 		 * @param pos
 		 */
-		includes(search:string,pos=0):SugarBoolean;
+		includes(search:string,pos?:number):SugarBoolean;
 		/**
 		 * Adds str at index. Allows negative values.
 		 * @param str
@@ -715,15 +716,15 @@
 		 */
 		katakana():SugarString;
 		/** Returns the last n characters of the string. */
-		last(n=1):SugarString;
+		last(n?:number):SugarString;
 		/** Runs fn against each line in the string, and returns an array. */
 		lines(fn?:(line:string,i?:number,arr?:string[])=>any):SugarArray<string>;
 		/** Pads the string out with padding to be exactly num characters. */
-		pad(num=null,padding=''):SugarString;
+		pad(num?:any,padding?:string):SugarString;
 		/** Pads the string out from the left with padding to be exactly num characters. */
-		padLeft(num=null,padding=''):SugarString;
+		padLeft(num?:any,padding?:string):SugarString;
 		/** Pads the string out from the right with padding to be exactly num characters. */
-		padRight(num=null,padding=''):SugarString;
+		padRight(num?:any,padding?:string):SugarString;
 		/** Replaces special characters in a string so that it may be used as part of a pretty URL. */
 		parameterize():SugarString;
 		/** Returns the plural form of the last word in the string.
@@ -756,12 +757,12 @@
 		 * @param tag
 		 * @param replace
 		 */
-		removeTags(tag='all',replace?:string|((tag:string,inner?:string,attr?:string,outer?:string)=>string)):SugarString;
+		removeTags(tag?:string,replace?:string|((tag:string,inner?:string,attr?:string,outer?:string)=>string)):SugarString;
 		/**
 		 * Returns the string repeated num times. This method is provided as a polyfill.
 		 * @param num
 		 */
-		repeat(num=0):SugarString;
+		repeat(num?:number):SugarString;
 		/**
 		 * Replaces all occurences of f with arguments passed.
 		 * This method is intended to be a quick way to perform multiple string replacements quickly when the replacement token differs depending on position.
@@ -780,7 +781,7 @@
 		/** Converts camelcase, underscores, and hyphens to spaces. */
 		spacify():SugarString;
 		/** Returns true if the string starts with substring search. Search begins at pos, which defaults to the entire string length. This method is provided as a polyfill. */
-		startsWith(search:string,post=0):SugarString;
+		startsWith(search:string,post?:number):SugarString;
 		/**
 		 * Strips HTML tags from the string.
 		 * tag may be an array of tags or 'all',
@@ -791,13 +792,13 @@
 		 * @param tag
 		 * @param replace
 		 */
-		stripTags(tag='all',replace:string|((tag:string,inner?:string,attr?:string,outer?:string)=>string));
+		stripTags(tag?:string,replace?:string|((tag:string,inner?:string,attr?:string,outer?:string)=>string));
 		/** Creates a title version of the string. Capitalizes all the words and replaces some characters in the string to create a nicer looking title. String#titleize is meant for creating pretty output. */
 		titleize():SugarString;
 		/** Returns a section of the string ending at index. */
 		to(index?:number):SugarString;
 		/** Converts the string into a number. Any value with a "." fill be converted to a floating point value, otherwise an integer. */
-		toNumber(base=10):SugarNumber;
+		toNumber(base?:number):SugarNumber;
 		/** Removes leading and trailing whitespace from the string.
 		 * Whitespace is defined as line breaks, tabs, and any character in the "Space, Separator" Unicode category, conforming to the the ES5 spec.
 		 * This method is provided as a polyfill. */
@@ -807,19 +808,19 @@
 		/** Removes trailing whitespace from the string. Whitespace is defined as line breaks, tabs, and any character in the "Space, Separator" Unicode category, conforming to the the ES5 trim spec. */
 		trimRight():SugarString;
 		/** Truncates a string. from can be 'right', 'left', or 'middle'. If the string is shorter than length, ellipsis will not be added. */
-		truncate(length:number,from='right',ellipsis='...'):SugarString;
+		truncate(length:number,from?:string,ellipsis?:string):SugarString;
 		/** Truncates a string without splitting up words. from can be 'right', 'left', or 'middle'. If the string is shorter than length, ellipsis will not be added. A "word" is defined as any sequence of non-whitespace characters. */
-		truncateOnWord(length:number,from='right',ellipsis=''):SugarString;
+		truncateOnWord(length:number,from?:string,ellipsis?:string):SugarString;
 		/** Converts hyphens and camel casing to underscores. */
 		underscore():SugarString;
 		/** Restores escaped HTML characters. */
 		unescapeHTML():SugarString;
 		/** Restores escaped characters in a URL escaped string. If partial is true, it will only unescape non-valid URL tokens, and is included here for completeness, but should be rarely needed. */
-		unescapeURL(partial=false):SugarString;
+		unescapeURL(partial?:boolean):SugarString;
 		/**Runs fn against each word in the string, and returns an array. A "word" is defined as any sequence of non-whitespace characters. */
 		words(fn?:(word:string,i?:number,arr?:string[])=>any):SugarArray<string>;
 		/** Converts half-width characters (hankaku) to full-width (zenkaku). mode accepts all, alphabet, numbers, katakana, spaces, punctuation, or any combination of a, n, k, s, or p, respectively. */
-		zenkaku(mode='all'):SugarString;
+		zenkaku(mode?:string):SugarString;
 	}
 	export function String(string:string):SugarString;
 	export namespace String{
@@ -853,6 +854,6 @@
 		 * @param singular
 		 * @param plural
 		 */
-		function addPlural(singular:string|RegExp,plural=singular):void;
+		function addPlural(singular:string|RegExp,plural?:string):void;
 	}
 //}
